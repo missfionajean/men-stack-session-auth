@@ -16,6 +16,7 @@ const morgan = require("morgan");
 // sets port from env file if there is one, otherwise defaults to 3000
 const port = process.env.PORT ? process.env.PORT : 3000;
 
+// imports router from auth.js as "authController"
 const authController = require("./controllers/auth.js");
 
 // --- DB CONNECTION --- //
