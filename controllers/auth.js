@@ -33,7 +33,15 @@ router.post("/sign-up", async (req, res) => {
 
 	// finally creates user in database
 	const newUser = await User.create(req.body);
-	res.send(`Thanks for signing up, ${newUser.username}!`);
+	
+    // auto-creates a session for the user
+    req.session.user = {
+		username: newUser.username,
+		_id: newUser._id,
+	};
+
+    // sends us back to root page
+	res.redirect("/");
 });
 
 // defines sign-in path after "/auth"
