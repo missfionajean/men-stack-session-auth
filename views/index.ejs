@@ -13,9 +13,26 @@
 	</head>
 	<body class="m-4">
 		<h1>Landing page!</h1>
+		<% if (user) { %>
+		<h2>Welcome to the app, <%= user.username %></h2>
+        <a href="/auth/sign-out" type="button" class="btn btn-primary"
+			>Sign Out</a
+		>
+		<% } else { %>
+		<h2>Welcome to the app, please sign in to continue!</h2>
+		<!-- sign up page link -->
 		<a href="/auth/sign-up" type="button" class="btn btn-primary"
 			>Sign Up</a
 		>
+		<!-- sign in page link -->
+		<a href="/auth/sign-in" type="button" class="btn btn-primary"
+			>Sign In</a
+		>
+        <% } %>
+
+        <!-- VIP area -->
+        <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
+
 
 		<!-- bootstrap goes at bottom of body -->
 		<script
